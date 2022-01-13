@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Report a Crime</title>
+    
+</head>
+<body>
+
+  <br>
+    <h1>Report a Crime</h1>
+    <form action="/add" method="POST">
+    <div class="form-group">
+        <label for="full name">Full Name:</label>
+        <input type="text" class="form-control" id="full_name" name="full_name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="text" class="form-control" id="age" name="age">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender" name="gender">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="phone number">Phone Number:</label>
+        <input type="text" class="form-control" id="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="incident description">Incident Description:</label>
+        <input type="textarea" class="form-control" id="incident" name="incident">
+      </div>
+      <div class="form-group">
+        <label for="minute">Crime Class:</label>
+        <input type="text" class="form-control" id="crime_category" name="crime_category">
+      </div>  <div class="form-group">
+        <label for="area">Incident Location:</label>
+        <input type="text" class="form-control" id="area" name="area">
+      </div>
+    </div>  <div class="form-group">
+      <label for="suspect_info">Information about the Suspect:</label>
+      <input type="text" class="form-control" id="suspect_info" name="suspect_info">
+    </div>
+    </div>  <div class="form-group">
+      <label for="date and time">Date and Time:</label>
+      <input type="datetime-local" class="form-control" id="date_time" name="date_time">
+    </div>
+   <div class="form-group">
+    <label for="police officer">Handled By:</label>
+    <input type="text" class="form-control" id="incident_handler" name="incident_handler">
+  </div>
+      <input type="submit" value="Submit" class="btn btn-default"/>
+    </form>
+  
+      
+</body>
+</html>

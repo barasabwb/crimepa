@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Flask Application</title>
+    
+</head>
+<body>
+<a href="{{url_for('hotmap')}}">HOTMAP</a>
+  <br>
+  <a href="{{url_for('report_crime')}}">REPORT A CRIME</a>
+  <br>
+  <a href="{{url_for('view_reported_crime')}}">Reported Crimes</a>
+  <br>
+  <a href="{{url_for('test')}}">TEST</a>
+  <br>
+  <a href="{{url_for('prediction_form')}}">Make a prediction</a>
+  <br>
+    <h1>Crime Prediction and Analysis</h1>
+    <form action="{{url_for('predict')}}" method="POST">
+    <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="text" class="form-control" id="year" name="year">
+      </div>
+      <div class="form-group">
+        <label for="month">Month:</label>
+        <input type="text" class="form-control" id="month" name="month">
+      </div>
+      <div class="form-group">
+        <label for="day">Day:</label>
+        <input type="text" class="form-control" id="day" name="day">
+      </div>
+      <div class="form-group">
+        <label for="hour">Hour:</label>
+        <input type="text" class="form-control" id="hour" name="hour">
+      </div>
+      <div class="form-group">
+        <label for="minute">Minute:</label>
+        <input type="text" class="form-control" id="minute" name="minute">
+      </div>
+      <div class="form-group">
+        <label for="neighbourhood">Neighbourhood</label>
+        <select class="form-control" id="neighbourhood" name="neighbourhood">
+          <option value="0">Arbutus Ridge</option>
+          <option value="1">Central Business District</option>
+          <option value="2">Dunbar-Southlands</option>
+          <option value="3">Fairview</option>
+          <option value="4">Grandview-Woodland</option>
+          <option value="5">Hastings-Sunrise</option>
+          <option value="6">Kensington-Cedar Cottage</option>
+          <option value="7">Kerrisdale</option>
+          <option value="8">Killamey</option>
+          <option value="9">Kitsilano</option>
+          <option value="10">Marpole</option>
+          <option value="11">Mount Pleasant</option>
+          <option value="12">Musqueam</option>
+          <option value="13">Oakridge</option>
+          <option value="14">Renfrew-Collingwood</option>
+          <option value="15"> Riley Park</option>
+          <option value="16">Shaughnessy</option>
+          <option value="17">South Cambie</option>
+          <option value="18">Stanley Park</option>
+          <option value="19">Strathcona</option>
+          <option value="20">Sunset</option>
+          <option value="21">Victoria-Fraserview</option>
+          <option value="22">Westend</option>
+          <option value="23">West Point Grey</option>
+        </select>
+      </div>
+    
+      <input type="submit" value="Submit" class="btn btn-default"/>
+    </form>
+    {{data}}
+      
+</body>
+</html>

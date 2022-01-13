@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Reported Crimes</title>
+   </head>
+   <body>
+      <h3>Profiles</h3>
+      <a href="{{url_for('report_crime')}}">REPORT A CRIME</a>
+      <br>
+      <table>
+         <thead>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Incident Description</th>
+            <th>Crime Category</th>
+            <th>Location</th>
+            <th>Suspect Information</th>
+            <th>Date and Time</th>
+            <th>Officer in Charge</th>
+         </thead>
+         {% for data in profiles %}
+         <tbody>
+            <td>{{data.id}}</td>
+            <td>{{data.full_name}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.incident_description}}</td>
+            <td>{{data.crime_category}}</td>
+            <td>{{data.location}}</td>
+            <td>{{data.suspect_info}}</td>
+            <td>{{data.date_and_time}}</td>
+            <td>{{data.officer_in_charge}}</td>
+            <td><a href="/delete/{{data.id}}" type="button">Delete</a></td>
+            <!-- <td><a href="/delete/{{data.id}}" type="button">Delete</a></td> -->
+         </tbody>
+         {% endfor%}
+      </table>
+   </body>
+</html>
