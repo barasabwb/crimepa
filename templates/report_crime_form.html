@@ -29,10 +29,10 @@
                         <li class="nav-item"><a class="nav-link" href="{{url_for('home')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url_for('prediction_form')}}">Make a Prediction</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url_for('visualization')}}">Visualizations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Predictions</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="">Predictions</a></li> -->
                         <li class="nav-item active"><a class="nav-link active" href="{{url_for('report_crime')}}">Report a Crime</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url_for('view_reported_crime')}}">Reported Crimes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url_for('test')}}">Test</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="{{url_for('test')}}">Test</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -97,7 +97,18 @@
                           <br>
                           <div class="form-group">
                             <!-- <label for="police officer"></label> -->
-                            <input placeholder="Officer In-Charge:" type="text" class="form-control" id="incident_handler" name="incident_handler">
+                            <!-- <input placeholder="Officer In-Charge:" type="text" class="form-control" id="incident_handler" name="incident_handler">
+                          </div> -->
+                          <div class="form-group">
+                            <label style="color: white;" for="gender">Officer In Charge:</label>
+                            <select class="form-control" id="incident_handler" name="incident_handler">
+                              <option value="Liutenant John Kamau">Liutenant John Kamau</option>
+                              <option value="Officer Carol Mwana">Officer Carol Mwana</option>
+                              <option value="Liutenant John Kamau">Sergeant Victor Mumo</option>
+                              <option value="Officer Carol Mwana">Corporal Vincent Kiptoo</option>
+                              <option value="Liutenant John Kamau">Inspector Claire Mwangi</option>
+                              <option value="Officer Carol Mwana">Officer Denzel Kijana</option>
+                            </select>
                           </div>
                             <br>
                           <input type="submit" value="Submit" class="btn btn-primary"/>

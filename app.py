@@ -2,12 +2,18 @@ from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, migrate
+import pandas as pd
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+import seaborn as sns
+import matplotlib.pyplot as plt
+from dash_application import create_dash_application
 
  
 # Settings for migrations
 import pickle
 import numpy as np
 model = pickle.load(open('rf_model.pkl', 'rb'))
+df = pd.read_csv("dataset/kenya_crime.csv")
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -16,6 +22,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
+create_dash_application(app)
+
 class Profile(db.Model):
   
     id = db.Column(db.Integer, primary_key=True)
@@ -98,11 +106,25 @@ def predict():
         int_features= [int (x) for x in request.form.values()]
         final_feat = [np.array(int_features)]
         pred = model.predict(final_feat)
-        variety_mappings = {0: 'Break and Enter Commercial ', 1: 'Break and Enter Residential/Other', 2: 'Mischief', 3:'Other Theft',4:'Theft from Vehicle',5:'Theft of Bicycle',6:'Theft of Vehicle',7:'Vehicle Collision or Pedestrian Struck (with Fatality)',8:'Vehicle Collision or Pedestrian Struck (with Injury)'}
+        variety_mappings = {0: 'Armed Robbery', 1: 'Carjacking', 2: 'Drug Charges', 3:'Fraud',4:'Pickpocketing',5:'Road Carnage',6:'Sexual Assault',7:'Terrorism'}
         for x in pred:
          val=x
         
         return render_template('prediction_form.html', data=format(variety_mappings[val]))
+        
+# @app.route('/crime_per_year', methods=['POST'])
+# def crime_per_year():
+#         nc = pd.DataFrame([df['YEAR'], df['NEIGHBOURHOOD'], df['TYPE']]).T 
+#         ncavg = nc.groupby(['YEAR','NEIGHBOURHOOD']).count().reset_index()
+#         ncavg = ncavg.drop('YEAR', axis = 1)
+#         ncavg.columns = ["Neighborhood", "Avg"]
+#         ncavg = ncavg.groupby(['Neighborhood'])['Avg'].mean()
+        
+        
+#         return render_template('prediction_form.html', data=format(variety_mappings[val]))
+
+
+
 
 @app.route('/delete/<int:id>')
 def erase(id):

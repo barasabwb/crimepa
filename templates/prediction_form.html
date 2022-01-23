@@ -29,10 +29,10 @@
                         <li class="nav-item"><a class="nav-link" href="{{url_for('home')}}">Home</a></li>
                         <li class="nav-item active"><a class="nav-link active" href="{{url_for('prediction_form')}}">Make a Prediction</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url_for('visualization')}}">Visualizations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Predictions</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="">Predictions</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="{{url_for('report_crime')}}">Report a Crime</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url_for('view_reported_crime')}}">Reported Crimes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url_for('test')}}">Test</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="{{url_for('test')}}">Test</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         <form action="{{url_for('predict')}}" method="POST">
                         <div class="form-group">
                             <!-- <label for="year">Year:</label> -->
-                            <input placeholder="Enter the Year of Prediction here:" type="text" class="form-control" id="year" name="year">
+                            <input placeholder="Enter the Year of Prediction here (Preferrably 2017-2020):" type="text" class="form-control" id="year" name="year">
                           </div>
                           <br>
                           
@@ -71,33 +71,19 @@
                           </div>
                           <br>
                           <div class="form-group">
-                            <label style="color: white;" for="neighbourhood">Pick an Area (These are areas in Vancouver)</label>
+                            <label style="color: white;" for="neighbourhood">Pick an Area (These are sample areas in Kenya):</label>
                             <select aria-placeholder="Pick an Area (These are areas in Vancouver)" class="form-control" id="neighbourhood" name="neighbourhood">
-                              <option value="0">Arbutus Ridge</option>
-                              <option value="1">Central Business District</option>
-                              <option value="2">Dunbar-Southlands</option>
-                              <option value="3">Fairview</option>
-                              <option value="4">Grandview-Woodland</option>
-                              <option value="5">Hastings-Sunrise</option>
-                              <option value="6">Kensington-Cedar Cottage</option>
-                              <option value="7">Kerrisdale</option>
-                              <option value="8">Killamey</option>
-                              <option value="9">Kitsilano</option>
-                              <option value="10">Marpole</option>
-                              <option value="11">Mount Pleasant</option>
-                              <option value="12">Musqueam</option>
-                              <option value="13">Oakridge</option>
-                              <option value="14">Renfrew-Collingwood</option>
-                              <option value="15"> Riley Park</option>
-                              <option value="16">Shaughnessy</option>
-                              <option value="17">South Cambie</option>
-                              <option value="18">Stanley Park</option>
-                              <option value="19">Strathcona</option>
-                              <option value="20">Sunset</option>
-                              <option value="21">Victoria-Fraserview</option>
-                              <option value="22">Westend</option>
-                              <option value="23">West Point Grey</option>
-                            </select>
+                                <option value="0">Githurai</option>
+                                <option value="1">Kahawa West</option>
+                                <option value="2">Kibera</option>
+                                <option value="3">Ngong</option>
+                                <option value="4">Parklands</option>
+                                <option value="5">South B</option>
+                                <option value="6">South C</option>
+                                <option value="7">Thika</option>
+                                <option value="8">Uhuru Park</option>
+                                <option value="9">UpperHill</option>
+                                </select>
                           </div>
                           <br>
                           <h2 class="text-white mb-4">Prediction: {{data}}</h2>
